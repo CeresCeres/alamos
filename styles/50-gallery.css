@@ -1,0 +1,75 @@
+/* Compact archive folios: one complete sheet at a time, with stable page dimensions. */
+.dossier-jump {
+  display:flex; justify-content:space-between; align-items:center;
+  width:100%; min-height:54px; margin-top:22px; padding:13px 0 13px 20px;
+  border:1px solid #7194ed9c; background:#4169d92b; color:#e8eefb;
+  text-align:left; font-size:12px; overflow:hidden;
+  transition:background .2s,border-color .2s;
+}
+.dossier-jump small {display:inline-block; margin-left:12px; padding:3px 8px; font:10px var(--mono); background:#d2e1f01a; color:#acc1d8;}
+.dossier-jump>b {display:grid; place-items:center; align-self:stretch; width:54px; min-height:54px; margin:-13px 0 -13px 16px; font-size:21px; font-weight:400; color:white; background:var(--dossier-accent);}
+.dossier-jump:hover {background:#4169d948; border-color:#a4c2ec;}
+.dossier-entry {width:100%; max-width:880px; margin:20px auto 0; border:1px solid var(--reader-rule); background:#0d1b28;}
+.dossier-entry>summary {display:flex; align-items:center; gap:18px; padding:14px 18px; list-style:none; cursor:pointer; color:#dbe6f1;}
+.dossier-entry>summary::-webkit-details-marker {display:none;}
+.dossier-entry>summary:hover {background:#a9c5df08;}
+.dossier-entry>summary:focus-visible {outline:2px solid #acc8f0; outline-offset:3px;}
+.dossier-entry[open]>summary {border-bottom:1px solid var(--reader-rule);}
+.entry-previews {display:flex; gap:4px; flex-shrink:0;}
+.entry-previews img {display:block; width:48px; height:36px; object-fit:contain; background:#20313f; border:1px solid #b4c7dc20;}
+.entry-heading {font-size:14px; letter-spacing:.04em;}
+.entry-heading>span {display:block; margin-top:3px; font-size:11px; color:#819ab1; letter-spacing:0;}
+.entry-action {margin-left:auto; white-space:nowrap; font-size:12px; color:#bacde1;}
+.entry-action b {display:inline-block; margin-left:12px; font-size:18px; font-weight:400;}
+.dossier-images {padding:14px;}
+.archive-album {--album-height:clamp(280px,46svh,420px); width:100%; max-width:850px; margin:0 auto; min-width:0;}
+.album-stage {position:relative; height:var(--album-height); overflow:hidden; background:#101c28; border:1px solid #b4c7dc33; touch-action:pan-y pinch-zoom;}
+.personnel .archive-album .library-grid {display:block; width:100%; height:100%; margin:0; padding:0;}
+.personnel .archive-album .library-image {position:relative; display:block; width:100%; height:100%; max-width:none; margin:0; padding:12px; background:none; cursor:zoom-in; border:0;}
+.personnel .archive-album .library-thumb {display:block; width:100%; height:100%; margin:0; padding:0; background:transparent; aspect-ratio:auto;}
+.personnel .archive-album .library-thumb img {display:block; width:100%; height:100%; object-fit:contain; filter:none;}
+.library-image:after {content:'↗'; position:absolute; right:10px; bottom:10px; width:26px; height:26px; line-height:26px; text-align:center; font-size:14px; color:#dceaff; background:#102334dc; opacity:0; transition:opacity .18s;}
+.library-image:hover:after,.library-image:focus-visible:after {opacity:1;}
+.library-image:focus-visible {outline:2px solid #7197ff; outline-offset:-3px;}
+.album-feedback {position:absolute; inset:0; display:flex; align-items:center; justify-content:center; gap:12px; pointer-events:none;}
+.album-status:not([hidden]) {max-width:80%; padding:9px 12px; background:#0b1729e8; color:#e1e9ef; font-size:12px; border:1px solid #b4c7dc33;}
+.album-retry {pointer-events:auto; min-height:40px; padding:8px 14px; background:#dfe8eb; color:#102133; font-size:12px;}
+.album-toolbar {display:flex; align-items:center; justify-content:space-between; gap:14px; padding:8px 0;}
+.album-hint {font-size:11px; color:#8fa5b7;}
+.album-controls {display:flex; align-items:center; gap:4px;}
+.album-controls>button {display:grid; place-items:center; width:44px; height:40px; background:transparent; border:1px solid #a9c5df33; color:#d8e4ed; font-size:20px; transition:background .16s,border-color .16s;}
+.album-controls>button:hover:not(:disabled) {background:#a9c5df17; border-color:#a9c5df85;}
+.album-controls>button:disabled {display:none;}
+.album-count {min-width:80px; text-align:center; font:11px var(--mono); letter-spacing:.08em; color:#bacddc;}
+.album-index {display:flex; gap:7px; overflow-x:auto; overflow-y:hidden; padding:3px 1px 8px; scrollbar-width:thin; scrollbar-color:#638199 transparent; overscroll-behavior-x:contain;}
+.album-index>button {position:relative; display:block; flex:0 0 68px; width:68px; height:49px; padding:3px; background:#172734; border:1px solid #93a8bb38; opacity:.65; transition:opacity .16s,border-color .16s;}
+.album-index img {display:block; width:100%; height:100%; object-fit:contain;}
+.album-index span {position:absolute; bottom:2px; right:2px; padding:1px 3px; background:#0b1528e8; color:#dce7f1; font:8px var(--mono);}
+.album-index>button:hover {opacity:1;}
+.album-index>button[aria-current=true] {opacity:1; border-color:var(--dossier-accent); box-shadow:0 0 0 1px var(--dossier-accent);}
+.personnel .faction-gallery .archive-album {margin:0;}
+.sheet-only .archive-album {margin-left:0;}
+@media (max-width:760px) {
+  .dossier-jump {font-size:14px; padding-left:16px;}
+  .dossier-jump small {font-size:11px; margin-left:7px;}
+  .dossier-entry {margin-top:14px;}
+  .dossier-entry>summary {padding:12px; gap:10px;}
+  .entry-previews img {width:36px; height:30px;}
+  .entry-previews img:nth-child(n+3) {display:none;}
+  .entry-heading {font-size:13px;}
+  .entry-heading>span {font-size:10px;}
+  .entry-action {font-size:11px;}
+  .entry-action b {margin-left:4px;}
+  .dossier-images {padding:10px;}
+  .archive-album {--album-height:clamp(230px,38svh,330px);}
+  .personnel .archive-album .library-image {padding:6px;}
+  .library-image:after {opacity:.75; width:24px; height:24px; line-height:24px; right:6px; bottom:6px;}
+  .album-hint {font-size:10px;}
+  .album-count {min-width:65px;}
+  .album-controls>button {height:44px;}
+  .album-index>button {flex-basis:60px; width:60px; height:44px;}
+}
+@media (prefers-reduced-motion:reduce) {
+  .archive-album button,.library-image:after {transition:none;}
+}
+

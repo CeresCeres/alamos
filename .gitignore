@@ -1,0 +1,18 @@
+# Local working artwork and temporary files do not belong in the static site.
+*.psd
+*.psb
+*.blend
+*.kra
+*.zip
+*.7z
+*.bak
+*.tmp
+*.log
+Thumbs.db
+.DS_Store
+__pycache__/
+.venv/
+node_modules/
+修改备份/
+版本备份*/
+backups/

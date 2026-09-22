@@ -1,0 +1,1991 @@
+/* 40-archives: canonical module, including its responsive rules. */
+
+.person-tabs {
+  display: flex;
+  gap: 25px;
+}
+
+.person-tabs button {
+  background: none;
+  color: #77899b;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 15px 5px;
+  border-bottom: 1px solid transparent;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.person-tabs button span {
+  font: 10px var(--mono);
+}
+
+.person-tabs button[aria-selected=true] {
+  color: #e4ecf5;
+  border-color: #a4bcd8;
+}
+
+.person-stage {
+  position: relative;
+  overflow: hidden;
+  min-height: 770px;
+}
+
+.person-panel {
+  position: relative;
+  display: grid;
+  isolation: isolate;
+}
+
+.person-number {
+  position: absolute;
+  top: 70px;
+  left: 10%;
+  font: 300 400px/1 var(--mono);
+  color: #bcd4f006;
+  z-index: -1;
+}
+
+.person-art {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+
+.variant {
+  position: absolute;
+  display: flex;
+  gap: 5px;
+  border: 1px solid var(--line);
+  padding: 3px;
+}
+
+.variant button {
+  font-size: 11px;
+  padding: 6px 25px;
+  background: none;
+  color: #8c9aab;
+}
+
+.variant button.active {
+  background: #a7c1e124;
+  color: #e0e7ef;
+}
+
+.person-en {
+  font: 10px/1.8 var(--mono);
+  margin: 0 0 12px;
+}
+
+.person-copy h3 {
+  font: 54px/1.3 "SimSun",serif;
+  margin: 0 0 40px;
+}
+
+.affiliation {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  letter-spacing: .08em;
+}
+
+.affiliation img {
+  object-fit: contain;
+}
+
+.affiliation small {
+  letter-spacing: .05em;
+  margin-top: 4px;
+}
+
+.person-quote {
+  border-left: 1px solid #8aa0b4;
+  padding-left: 18px;
+  margin-top: 25px;
+}
+
+.outline-link {
+  background: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 35px;
+  font-size: 11px;
+  padding: 14px 0;
+  border-bottom: 1px solid #9aafc14d;
+  width: 100%;
+  max-width: 290px;
+  margin-top: 30px;
+}
+
+.outline-link:hover {
+  color: white;
+  border-color: #cadcee;
+}
+
+.person-panel:has(.portrait img) {
+  background: radial-gradient(ellipse at var(--portrait-glow-position,25% 50%),var(--portrait-glow,#496b9c1a),transparent var(--portrait-glow-edge,65%));
+}
+
+.nancy .portrait {
+  max-width: none;
+}
+
+.nancy .person-copy {
+  padding-left: 15px;
+}
+
+@media (min-width:1800px) {
+  .person-stage {
+    min-height: 950px;
+  }
+}
+
+@media (min-width:1800px) {
+  .person-copy h3 {
+    font-size: 65px;
+  }
+}
+
+@media (max-width:1050px) {
+  .person-tabs {
+    gap: 15px;
+  }
+}
+
+@media (max-width:1050px) {
+  .person-copy {
+    padding: 25px;
+  }
+}
+
+@media (max-width:1050px) {
+  .person-copy h3 {
+    font-size: 42px;
+  }
+}
+
+@media (max-width:1050px) {
+  .person-stage {
+    min-height: 670px;
+  }
+}
+
+@media (max-width:1050px) {
+  .person-panel {
+    min-height: 670px;
+  }
+}
+
+@media (max-width:1050px) {
+  .nancy .portrait {
+    height: 640px;
+  }
+}
+
+@media (max-width:760px) {
+  .person-tabs {
+    margin-top: 25px;
+    gap: 0;
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width:760px) {
+  .person-tabs button {
+    padding: 13px 9px;
+    font-size: 12px;
+    gap: 7px;
+  }
+}
+
+@media (max-width:760px) {
+  .person-tabs button span {
+    font-size: 8px;
+  }
+}
+
+@media (max-width:760px) {
+  .person-stage {
+    min-height: 0;
+  }
+}
+
+@media (max-width:760px) {
+  .person-art {
+    min-height: 0;
+  }
+}
+
+@media (max-width:760px) {
+  .nancy .portrait {
+    margin: 0;
+  }
+}
+
+@media (max-width:760px) {
+  .person-number {
+    font-size: 240px;
+    left: 0;
+    top: 80px;
+  }
+}
+
+@media (max-width:760px) {
+  .affiliation {
+    font-size: 11px;
+  }
+}
+
+@media (max-width:760px) {
+  .person-quote {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width:760px) {
+  .outline-link {
+    max-width: none;
+  }
+}
+
+.faction-tabs {
+  display: grid;
+}
+
+.faction-tabs>button {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--line);
+  text-align: left;
+  font-size: 14px;
+}
+
+.faction-tabs img {
+  object-fit: contain;
+}
+
+.faction-tabs small {
+  display: block;
+  font: 8px/1.7 var(--mono);
+  letter-spacing: .09em;
+}
+
+.faction-intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  margin: 20px var(--pad);
+  font-size: 11px;
+  color: #92a4b6;
+}
+
+.faction-intro>span {
+  font: 9px var(--mono);
+  white-space: nowrap;
+}
+
+.archive-roster {
+  margin: 15px var(--pad) 0;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.empty-archive {
+  min-height: 540px;
+  position: relative;
+  isolation: isolate;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty-mark {
+  font: 80px/1 var(--mono);
+  color: #8097af30;
+  margin-bottom: 35px;
+}
+
+.empty-archive h3 {
+  font: 30px "SimSun",serif;
+  letter-spacing: .18em;
+  margin: 0 0 18px;
+}
+
+.empty-archive>p:last-child {
+  font-size: 11px;
+  color: #8296ab;
+}
+
+.identity-controls {
+  display: flex;
+  gap: 0;
+  border: 1px solid var(--line);
+  margin: 0 0 30px;
+}
+
+.identity-controls button {
+  background: transparent;
+  flex: 1;
+  text-align: left;
+  padding: 12px 16px;
+  font-size: 14px;
+  color: #7e94a9;
+}
+
+.identity-controls span {
+  display: block;
+  font: 8px/1.8 var(--mono);
+  margin-bottom: 4px;
+}
+
+.identity-controls [aria-pressed=true] {
+  background: #88a9c51b;
+  color: #dbe6f0;
+}
+
+.dual-identity .person-copy h3 {
+  margin-bottom: 25px;
+}
+
+.dual-identity .person-copy .identity-note {
+  font: 9px/1.9 var(--mono);
+  color: #b19c78;
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+}
+
+.historical {
+  --portrait-glow: #65583c35;
+  --portrait-glow-position: 35% 45%;
+  --portrait-glow-edge: 70%;
+}
+
+.historical .portrait img {
+  filter: drop-shadow(0 0 30px #9fa98c18);
+}
+
+.historical .person-en {
+  color: #b2ac89;
+}
+
+.historical .micro {
+  color: #b2ac89;
+}
+
+@keyframes archive-in{from{opacity:.25;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+@media (max-width:1050px) {
+  .faction-tabs>button {
+    padding: 16px;
+  }
+}
+
+@media (max-width:760px) {
+  .faction-tabs {
+    margin-top: 25px;
+  }
+}
+
+@media (max-width:760px) {
+  .faction-tabs small {
+    letter-spacing: 0;
+  }
+}
+
+@media (max-width:760px) {
+  .faction-intro {
+    display: block;
+    font-size: 10px;
+  }
+}
+
+@media (max-width:760px) {
+  .archive-roster {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width:760px) {
+  .archive-roster button {
+    font-size: 11px;
+    padding: 11px 8px;
+  }
+}
+
+@media (max-width:760px) {
+  .empty-archive {
+    min-height: 440px;
+  }
+}
+
+@media (max-width:760px) {
+  .person-stage:has(.empty-archive) {
+    min-height: 0;
+  }
+}
+
+@media (max-width:760px) {
+  .identity-controls button {
+    padding: 12px;
+  }
+}
+
+@media (max-width:760px) {
+  .identity-note {
+    overflow-wrap: anywhere;
+  }
+}
+
+.archive-roster {
+  width: auto;
+}
+
+.person-panel:has(.research-link[open]) {
+  align-items: start;
+}
+
+.person-copy h3 {
+  overflow-wrap: anywhere;
+}
+
+.faction-tabs>button {
+  min-width: 0;
+}
+
+.faction-tabs>button>span {
+  min-width: 0;
+}
+
+.archive-roster button {
+  white-space: normal;
+  text-align: left;
+}
+
+.organization-link {
+  border-top: 1px solid var(--line);
+  margin-top: 28px;
+  padding-top: 20px;
+  font-size: 12px;
+}
+
+.organization-link .micro {
+  margin-bottom: 12px;
+}
+
+.organization-link small {
+  display: block;
+  font: 8px/1.8 var(--mono);
+  color: #8da2b6;
+  margin-top: 5px;
+}
+
+.org-arrow {
+  display: block;
+  font-size: 10px;
+  color: #859bb1;
+  margin: 12px 0;
+}
+
+.organization-link button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: #a7c4df0b;
+  border: 1px solid var(--line);
+  padding: 12px 16px;
+}
+
+.organization-link button>span {
+  float: right;
+}
+
+.record-clue .outline-link {
+  color: #859ab0;
+  font-size: 10px;
+}
+
+.affiliation img[src$="ice-nova-corp.png"] {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+}
+
+.affiliation small {
+  font: 8px/1.8 var(--mono);
+  display: block;
+  color: #8ba0b5;
+}
+
+.faction-tabs small {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width:760px) {
+  .person-copy h3 {
+    line-height: 1.5;
+  }
+}
+
+@media (max-width:760px) {
+  .faction-tabs img {
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width:760px) {
+  .archive-roster button {
+    max-width: 100%;
+  }
+}
+
+.affiliation img[src$="ice-nova-corp-clear.svg"] {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+}
+
+.faction-gallery {
+  min-height: 400px;
+}
+
+.person-supplement {
+  grid-column: 1/-1;
+  margin: 0 0 40px;
+  width: 100%;
+}
+
+.sheet-only {
+  display: block;
+  min-height: 0;
+}
+
+.sheet-only .person-art {
+  display: none;
+}
+
+.sheet-only .affiliation {
+  display: none;
+}
+
+.sheet-only .person-copy>.micro {
+  display: none;
+}
+
+.sheet-only .person-copy h3 {
+  font-size: 30px;
+}
+
+.person-supplement summary b {
+  margin-left: auto;
+}
+
+.faction-gallery:has(img[src*="lib-43"]) {
+  min-height: 0;
+}
+
+@media (max-width:760px) {
+  .person-supplement {
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width:760px) {
+  .faction-gallery {
+    min-height: 0;
+  }
+}
+
+@media (max-width:760px) {
+  .person-stage:has(.faction-gallery) {
+    min-height: 0;
+  }
+}
+
+.person-stage:has(.faction-gallery) {
+  min-height: 0;
+  padding-bottom: 35px;
+}
+
+@media (max-width:760px) {
+  .person-supplement {
+    scroll-margin-top: 18px;
+  }
+}
+
+.faction-tabs img[src$="infected-mark.svg"] {
+  background: transparent;
+  opacity: 1;
+}
+
+.person-copy>p {
+  overflow-wrap: anywhere;
+}
+
+.sheet-only .person-copy>p {
+  max-width: 780px;
+}
+
+@media (max-width:760px) {
+  .sheet-only .person-copy {
+    padding-top: 30px;
+  }
+}
+
+.faction-gallery {
+  position: relative;
+  isolation: isolate;
+}
+
+.person-copy h3 {
+  font-family: "Microsoft YaHei",sans-serif;
+  font-weight: 500;
+}
+
+.faction-tabs>button {
+  position: relative;
+}
+
+.faction-tabs>button:before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  background: transparent;
+  transition: background .18s;
+}
+
+.faction-tabs>button:hover {
+  color: #e7edf4;
+}
+
+.faction-tabs>button[aria-selected=true]:after {
+  content: "";
+  position: absolute;
+}
+
+.faction-tabs>button[data-faction=ship] {
+  --signal: #b87c59;
+}
+
+.faction-tabs>button[data-faction=russian] {
+  --signal: #c1a95d;
+}
+
+.faction-tabs>button[data-faction=secret] {
+  --signal: #de9d52;
+}
+
+.faction-tabs>button[data-faction=infected] {
+  --signal: #c5ced8;
+}
+
+.faction-tabs img {
+  opacity: .8;
+}
+
+.archive-roster {
+  margin-top: 28px;
+}
+
+.archive-roster button {
+  position: relative;
+  padding: 14px 4px;
+  color: #859aaf;
+}
+
+.archive-roster button[aria-selected=true] {
+  border-color: #88a8d3;
+}
+
+.archive-roster button:hover {
+  color: #e2ebf5;
+}
+
+.person-copy>.micro {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.person-copy>.micro:before {
+  content: "";
+}
+
+.person-panel {
+  animation: person-arrive .38s ease-out;
+}
+
+.person-panel.historical {
+  animation: record-arrive .46s ease-out;
+}
+
+.person-art .portrait {
+  cursor: zoom-in;
+}
+
+.record-clue button {
+  border-bottom-color: #9b927744;
+}
+
+.record-clue button:hover {
+  color: #d8c8a4;
+}
+
+@keyframes person-arrive{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
+
+@keyframes record-arrive{0%{opacity:.2;clip-path:inset(0 0 88% 0)}55%{opacity:.85}100%{opacity:1;clip-path:inset(0)}}
+
+.personnel {
+  position: relative;
+}
+
+.faction-tabs>button {
+  border-color: #b2c8dd40;
+  background: #829dbe08;
+  transition: background .2s,color .2s,border-color .2s;
+}
+
+.faction-tabs>button:before {
+  top: 0;
+  bottom: 0;
+  width: 4px;
+}
+
+.faction-tabs>button:after {
+  content: "";
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  width: 8px;
+  height: 8px;
+  border-top: 1px solid #bfd2e188;
+  border-right: 1px solid #bfd2e188;
+}
+
+.faction-tabs>button:hover {
+  background: #99b5d41a;
+  border-color: #d1dfeb9c;
+}
+
+.faction-tabs>button[aria-selected=true] {
+  color: var(--signal-ink);
+}
+
+.faction-tabs>button[aria-selected=true]:before {
+  background: var(--signal-blue);
+}
+
+.faction-tabs>button[aria-selected=true]:after {
+  width: 8px;
+  height: 8px;
+  right: 12px;
+  top: 12px;
+  border: 0;
+  background: var(--signal-blue);
+}
+
+.faction-tabs>button[aria-selected=true] img {
+  opacity: 1;
+}
+
+.faction-tabs>button[aria-selected=true] small {
+  color: #354957;
+}
+
+.archive-roster {
+  border-bottom: 1px solid #b3cad127;
+  gap: 25px;
+}
+
+.archive-roster button {
+  border-bottom-width: 2px;
+}
+
+.archive-roster button[aria-selected=true] {
+  border-bottom-color: var(--signal-blue);
+  color: white;
+}
+
+.archive-roster button[aria-selected=true]>span {
+  background: var(--signal-blue);
+  color: white;
+  padding: 2px 4px;
+}
+
+.person-panel:before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  border-top: 1px solid #93adcb60;
+  border-bottom: 1px solid #93adcb60;
+  background: repeating-linear-gradient(0deg,#93adcb50 0 1px,transparent 1px 30px) left/6px 100% no-repeat;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.person-copy>.micro:before {
+  width: 25px;
+  height: 3px;
+}
+
+.person-copy h3 {
+  color: #edf0ef;
+}
+
+.person-en {
+  color: #b6c9dd;
+  letter-spacing: .18em;
+}
+
+.affiliation {
+  border-top: 1px solid #a3bfd24d;
+}
+
+@media (max-width:760px) {
+  .person-panel:before {
+    display: none;
+  }
+}
+
+@media (max-width:760px) {
+  .faction-tabs>button:after {
+    right: 7px;
+    top: 7px;
+    width: 5px;
+    height: 5px;
+  }
+}
+
+@media (max-width:760px) {
+  .faction-tabs>button[aria-selected=true]:after {
+    right: 7px;
+    top: 7px;
+    width: 5px;
+    height: 5px;
+  }
+}
+
+@media (max-width:760px) {
+  .archive-roster {
+    gap: 12px;
+  }
+}
+
+@media (max-width:1050px) {
+  .faction-tabs {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+  }
+}
+
+.roster-picker {
+  padding-top: 23px;
+}
+
+.roster-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.roster-heading h3 {
+  margin: 0;
+  line-height: 1.5;
+  font-weight: 600;
+  color: #ecf0f5;
+}
+
+.roster-heading>span {
+  letter-spacing: .04em;
+}
+
+.roster-picker .archive-roster {
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  margin: 0;
+  width: auto;
+  border: 0;
+}
+
+.archive-roster .person-tab {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  text-align: left;
+  border: 1px solid #7791b465;
+  color: #d7e2ef;
+  transition: background .2s,border-color .2s;
+}
+
+.archive-roster .person-tab:hover {
+  border-color: #a9c5f8;
+  background: #213851;
+}
+
+.archive-roster .person-tab[aria-selected=true] {
+  border: 1px solid #7397ff;
+}
+
+.archive-roster .person-tab[aria-selected=true]>span {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+.archive-roster .person-tab .roster-emblem {
+  display: block;
+  overflow: hidden;
+}
+
+.roster-emblem img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.roster-emblem-nancy img {
+  filter: brightness(1.65);
+}
+
+.archive-roster .person-tab .roster-card-copy {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.roster-card-copy .roster-card-index {
+  font: 9px/1.3 var(--mono);
+  letter-spacing: .13em;
+  color: #a7bdd8;
+}
+
+.roster-card-copy strong {
+  overflow-wrap: anywhere;
+}
+
+.roster-card-copy small {
+  color: #b8cce5;
+  letter-spacing: .06em;
+}
+
+.person-tab[aria-selected=true] .roster-card-copy small:before {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin: 0 7px 1px 0;
+}
+
+.roster-card-arrow {
+  line-height: 1;
+  font-weight: 400;
+  flex-shrink: 0;
+  color: #b9d0f3;
+}
+
+.archive-roster .person-tab.reserved-tab {
+  opacity: 1;
+  border-style: dashed;
+  border-color: #7891a53d;
+  box-shadow: none;
+}
+
+.archive-roster .reserved-tab .roster-card-copy {
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.reserved-tab .roster-card-copy small {
+  display: none;
+}
+
+.reserved-tab .roster-card-arrow {
+  color: #7d91a9;
+}
+
+.archive-roster .reserved-tab[aria-selected=true] {
+  border-color: #7896d0;
+  background: #253b602b;
+  color: #d6e1f3;
+}
+
+.archive-roster[data-public-count="1"]>.person-tab:not(.reserved-tab) {
+  grid-column: 1/-1;
+}
+
+.archive-roster[data-archive-group="linked"] {
+  grid-template-columns: repeat(3,minmax(0,1fr));
+}
+
+@media (max-width:760px) {
+  .roster-picker {
+    margin-top: 25px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+  }
+}
+
+@media (max-width:760px) {
+  .roster-heading {
+    gap: 8px;
+  }
+}
+
+@media (max-width:760px) {
+  .roster-heading>span {
+    letter-spacing: 0;
+  }
+}
+
+@media (max-width:760px) {
+  .roster-emblem img {
+    padding: 5px;
+  }
+}
+
+@media (max-width:760px) {
+  .archive-roster .person-tab .roster-card-copy {
+    padding-right: 0;
+  }
+}
+
+@media (max-width:760px) {
+  .roster-card-copy .roster-card-index {
+    position: absolute;
+    right: 12px;
+    top: 14px;
+    font-size: 9px;
+  }
+}
+
+@media (max-width:760px) {
+  .roster-card-copy strong {
+    line-height: 1.6;
+  }
+}
+
+@media (max-width:760px) {
+  .roster-card-arrow {
+    right: 12px;
+    top: 41px;
+  }
+}
+
+@media (max-width:760px) {
+  .archive-roster .reserved-tab .roster-card-copy {
+    padding: 0;
+    gap: 8px;
+  }
+}
+
+@media (max-width:760px) {
+  .reserved-tab .roster-card-index {
+    position: static !important;
+  }
+}
+
+@media (max-width:760px) {
+  .reserved-tab .roster-card-arrow {
+    top: 50%;
+  }
+}
+
+@media (max-width:760px) {
+  .archive-roster[data-public-count="1"]>.person-tab:not(.reserved-tab) {
+    flex-direction: row;
+    align-items: center;
+    padding-right: 36px;
+  }
+}
+
+@media (max-width:760px) {
+  .archive-roster[data-public-count="1"]>.person-tab:not(.reserved-tab) .roster-card-copy {
+    flex: 1;
+  }
+}
+
+@media (max-width:760px) {
+  .archive-roster[data-public-count="1"]>.person-tab:not(.reserved-tab) .roster-card-index {
+    position: static;
+  }
+}
+
+@media (max-width:760px) {
+  .archive-roster[data-archive-group="linked"] {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+  }
+}
+
+.personnel {
+  --dossier-accent: #7197ff;
+  --portrait-glow: #496b9c1a;
+  --roster-space: 248px;
+  --archive-gap: 40px;
+  --archive-stage-height: 814px;
+  padding-top: 30px;
+  background: radial-gradient(ellipse at 26% 40%,#24456648,transparent 52%),#0a1420;
+}
+
+.personnel[data-faction=ship] {
+  --dossier-accent: #cf8f72;
+  --portrait-glow: #8f654c1a;
+}
+
+.personnel[data-faction=russian] {
+  --dossier-accent: #d4bb72;
+  --portrait-glow: #7d6e401a;
+}
+
+.personnel[data-faction=linked] {
+  --dossier-accent: #afc3cf;
+  --portrait-glow: #6e83931a;
+}
+
+.personnel>.section-kicker {
+  padding-top: 14px;
+}
+
+.personnel>.section-top {
+  margin: 18px var(--pad) 16px;
+}
+
+.personnel>.section-top .micro {
+  display: none;
+}
+
+.personnel>.section-top h2 {
+  font-size: clamp(38px,4vw,60px);
+  line-height: 1.15;
+}
+
+.faction-tabs {
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  gap: 8px;
+  margin: 0 var(--pad) 22px;
+}
+
+.faction-tabs>button {
+  padding: 12px 16px;
+  min-height: 68px;
+  gap: 12px;
+  color: #b5c4d2;
+}
+
+.faction-tabs img {
+  width: 32px;
+  height: 32px;
+}
+
+.faction-tabs small {
+  margin-top: 3px;
+  font-size: 7px;
+}
+
+.faction-tabs>button[aria-selected=true] {
+  background: #e5eceb;
+  border-color: #e5eceb;
+}
+
+#faction-panel {
+  display: grid;
+  grid-template-columns: minmax(0,1.12fr) minmax(0,1fr);
+  gap: 0 var(--archive-gap);
+  margin: 0 var(--pad);
+  position: relative;
+}
+
+#archive-person {
+  grid-area: 1/1/2/3;
+  min-width: 0;
+  overflow: visible;
+  min-height: var(--archive-stage-height);
+  padding-bottom: 0;
+  overflow-anchor: none;
+  isolation: isolate;
+}
+
+.roster-picker {
+  grid-area: 1/2;
+  align-self: start;
+  z-index: 2;
+  position: relative;
+  margin: 24px 0 0;
+  padding: 0 0 20px;
+  border-top: 0;
+  border-bottom: 1px solid #b3cad133;
+}
+
+.roster-heading {
+  margin-bottom: 12px;
+  gap: 12px;
+}
+
+.roster-heading h3 {
+  font-size: 13px;
+  letter-spacing: .1em;
+}
+
+.roster-heading>span {
+  font-size: 10px;
+  color: #a9bdcf;
+}
+
+.roster-picker .archive-roster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.archive-roster .person-tab {
+  flex: 1 1 calc(50% - 7px);
+  min-height: 76px;
+  padding: 10px 12px;
+  gap: 11px;
+  background: #adcae209;
+  border-color: #8aa6bd4a;
+}
+
+.archive-roster .person-tab .roster-emblem {
+  flex: 0 0 42px;
+  width: 42px;
+  height: 50px;
+  background: #637b9620;
+  border: 0;
+}
+
+.roster-emblem img {
+  padding: 3px;
+}
+
+.archive-roster .person-tab .roster-card-copy {
+  gap: 3px;
+}
+
+.roster-card-copy .roster-card-index {
+  display: none;
+}
+
+.roster-card-copy strong {
+  font-size: 13px;
+  line-height: 1.5;
+  letter-spacing: 0;
+  font-weight: 500;
+}
+
+.roster-card-copy small {
+  font-size: 9px;
+  line-height: 1.5;
+}
+
+.roster-card-arrow {
+  font-size: 18px;
+}
+
+.archive-roster .person-tab[aria-selected=true] {
+  background: #e3ebed;
+  color: #112739;
+  border-color: #e3ebed;
+  box-shadow: inset 3px 0 var(--dossier-accent);
+}
+
+.person-tab[aria-selected=true] .roster-card-copy small {
+  color: #3e596c;
+}
+
+.person-tab[aria-selected=true] .roster-card-arrow {
+  color: #3e596c;
+}
+
+.person-tab[aria-selected=true] .roster-emblem-nancy img {
+  filter: none;
+}
+
+.archive-roster .person-tab.reserved-tab {
+  flex: 1 1 0;
+  min-height: 32px;
+  padding: 5px 10px;
+  gap: 8px;
+  background: transparent;
+  color: #91a5b8;
+}
+
+.archive-roster .reserved-tab .roster-card-index {
+  display: block;
+  font-size: 8px;
+}
+
+.reserved-tab .roster-card-copy strong {
+  font-size: 10px;
+}
+
+.reserved-tab .roster-card-arrow {
+  font-size: 13px;
+}
+
+.archive-roster[data-public-count="1"]>.person-tab:not(.reserved-tab) {
+  flex-basis: 100%;
+}
+
+.archive-roster[data-archive-group="linked"]>.person-tab {
+  flex-basis: 100%;
+  min-height: 53px;
+}
+
+.archive-roster[data-archive-group="linked"] .roster-emblem {
+  height: 34px;
+  flex-basis: 34px;
+  width: 34px;
+}
+
+.person-panel {
+  grid-template-columns: minmax(0,1.12fr) minmax(0,1fr);
+  column-gap: var(--archive-gap);
+  padding: 0;
+  min-height: 770px;
+}
+
+.nancy {
+  grid-template-columns: minmax(0,1.12fr) minmax(0,1fr);
+  column-gap: var(--archive-gap);
+  padding: 0;
+  min-height: 770px;
+}
+
+.person-panel:before {
+  left: 0;
+  top: 35px;
+  bottom: 110px;
+  opacity: .5;
+}
+
+.person-art {
+  align-self: start;
+  padding-bottom: 54px;
+}
+
+.nancy .portrait {
+  height: 760px;
+  width: 119%;
+  margin-left: -8%;
+  padding: 20px 0 10px;
+}
+
+.person-copy {
+  align-self: start;
+  padding: var(--roster-space) 0 35px;
+  max-width: none;
+}
+
+.nancy .person-copy {
+  align-self: start;
+  padding: var(--roster-space) 0 35px;
+  max-width: none;
+}
+
+.person-copy>.micro {
+  margin-bottom: 15px;
+  font-size: 8px;
+}
+
+.person-copy>.micro:before {
+  background: var(--dossier-accent);
+}
+
+.person-en {
+  font-size: 9px;
+  line-height: 1.8;
+  margin-bottom: 8px;
+}
+
+.person-copy h3 {
+  font-size: clamp(30px,3vw,48px);
+  line-height: 1.35;
+  letter-spacing: .025em;
+  margin-bottom: 20px;
+}
+
+.affiliation {
+  padding-top: 16px;
+  margin-bottom: 17px;
+  gap: 12px;
+}
+
+.person-copy>p:not(.micro):not(.person-en) {
+  font-size: 12px;
+  line-height: 2.15;
+  color: #b8c8d6;
+}
+
+.archive-backdrop {
+  position: absolute;
+  top: 60px;
+  left: -8%;
+  width: 76%;
+  height: calc(var(--archive-stage-height) - 134px);
+  z-index: -1;
+  pointer-events: none;
+  opacity: .12;
+}
+
+.archive-backdrop img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: grayscale(1);
+}
+
+.archive-backdrop img[src$="ice-nova-corp-clear.svg"] {
+  opacity: .5;
+}
+
+.archive-backdrop img[src$="infected-mark.svg"] {
+  filter: invert(1);
+}
+
+.variant {
+  bottom: 12px;
+}
+
+.person-supplement {
+  margin-bottom: 45px;
+}
+
+.faction-gallery {
+  margin: 24px 0;
+}
+
+.personnel .faction-gallery {
+  width: calc((100% - var(--archive-gap)) * .528301887);
+  min-height: var(--archive-stage-height);
+  margin: 0;
+}
+
+.personnel .empty-archive {
+  width: calc((100% - var(--archive-gap)) * .528301887);
+  min-height: var(--archive-stage-height);
+  margin: 0;
+}
+
+.personnel .faction-gallery {
+  padding: 4px 0 54px;
+}
+
+#faction-panel[data-layout="sheet"] {
+  display: block;
+}
+
+#faction-panel[data-layout="sheet"] .roster-picker {
+  margin: 18px 0 22px;
+  max-width: 720px;
+}
+
+#faction-panel[data-layout="sheet"] .empty-archive {
+  width: 100%;
+  max-width: 850px;
+}
+
+.person-panel.sheet-only {
+  display: block;
+  min-height: 0;
+}
+
+.sheet-only .person-copy {
+  padding: 15px 0 0;
+  max-width: 850px;
+}
+
+@media (min-width:1800px) {
+  .personnel {
+    --archive-stage-height: 954px;
+  }
+}
+
+@media (min-width:1800px) {
+  .nancy .portrait {
+    height: 900px;
+  }
+}
+
+@media (min-width:1800px) {
+  .person-panel {
+    min-height: 940px;
+  }
+}
+
+@media (min-width:1800px) {
+  .person-copy {
+    max-width: 580px;
+  }
+}
+
+@media (min-width:1800px) {
+  .roster-picker {
+    max-width: 580px;
+  }
+}
+
+@media (min-width:761px) and (max-width:1050px) {
+  .personnel {
+    --archive-gap: 24px;
+    --archive-stage-height: 774px;
+  }
+}
+
+@media (min-width:761px) and (max-width:1050px) {
+  .faction-tabs>button {
+    padding: 10px;
+    font-size: 12px;
+    gap: 8px;
+  }
+}
+
+@media (min-width:761px) and (max-width:1050px) {
+  .faction-tabs img {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+@media (min-width:761px) and (max-width:1050px) {
+  .faction-tabs small {
+    font-size: 6px;
+  }
+}
+
+@media (min-width:761px) and (max-width:1050px) {
+  .archive-roster .person-tab {
+    padding: 9px;
+    gap: 8px;
+  }
+}
+
+@media (min-width:761px) and (max-width:1050px) {
+  .archive-roster .person-tab .roster-emblem {
+    width: 32px;
+    flex-basis: 32px;
+    height: 44px;
+  }
+}
+
+@media (min-width:761px) and (max-width:1050px) {
+  .roster-card-copy strong {
+    font-size: 12px;
+  }
+}
+
+@media (min-width:761px) and (max-width:1050px) {
+  .roster-card-arrow {
+    display: none;
+  }
+}
+
+@media (min-width:761px) and (max-width:1050px) {
+  .nancy .portrait {
+    height: 720px;
+  }
+}
+
+@media (min-width:761px) and (max-width:1050px) {
+  .person-copy h3 {
+    font-size: 30px;
+  }
+}
+
+@media (max-width:760px) {
+  .personnel {
+    --archive-stage-height: calc(min(153vw,730px) + 46px);
+    padding-top: 24px;
+  }
+}
+
+@media (max-width:760px) {
+  .personnel>.section-kicker {
+    padding-top: 12px;
+    font-size: 7px;
+  }
+}
+
+@media (max-width:760px) {
+  .personnel>.section-kicker>span:last-child {
+    display: none;
+  }
+}
+
+@media (max-width:760px) {
+  .personnel>.section-top {
+    margin: 14px var(--pad) 14px;
+  }
+}
+
+@media (max-width:760px) {
+  .personnel>.section-top h2 {
+    font-size: 34px;
+  }
+}
+
+@media (max-width:760px) {
+  .faction-tabs {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 6px;
+    margin-bottom: 18px;
+  }
+}
+
+@media (max-width:760px) {
+  .faction-tabs>button {
+    padding: 8px 10px;
+    gap: 8px;
+  }
+}
+
+@media (max-width:760px) {
+  .faction-tabs img {
+    width: 23px;
+    height: 23px;
+  }
+}
+
+@media (max-width:760px) {
+  .faction-tabs small {
+    font-size: 5.5px;
+    margin-top: 2px;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width:760px) {
+  #faction-panel {
+    display: block;
+    margin: 0 20px;
+  }
+}
+
+@media (max-width:760px) {
+  .roster-picker {
+    margin: 0 5px 14px;
+    padding-bottom: 14px;
+  }
+}
+
+@media (max-width:760px) {
+  .roster-heading {
+    margin-bottom: 9px;
+  }
+}
+
+@media (max-width:760px) {
+  .roster-picker .archive-roster {
+    width: auto;
+    gap: 6px;
+  }
+}
+
+@media (max-width:760px) {
+  .archive-roster .person-tab {
+    flex-direction: row;
+    align-items: center;
+    min-height: 66px;
+    padding: 8px;
+    gap: 8px;
+  }
+}
+
+@media (max-width:760px) {
+  .archive-roster .person-tab .roster-emblem {
+    flex: 0 0 32px;
+    width: 32px;
+    height: 40px;
+  }
+}
+
+@media (max-width:760px) {
+  .archive-roster .person-tab .roster-card-copy {
+    flex: 1;
+    min-width: 0;
+    gap: 2px;
+  }
+}
+
+@media (max-width:760px) {
+  .roster-card-arrow {
+    position: static;
+    font-size: 16px;
+  }
+}
+
+@media (max-width:760px) {
+  .archive-roster .person-tab.reserved-tab {
+    min-height: 36px;
+    padding: 7px 8px;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width:760px) {
+  .archive-roster .reserved-tab .roster-card-copy {
+    flex: 1;
+  }
+}
+
+@media (max-width:760px) {
+  .reserved-tab .roster-card-arrow {
+    position: static;
+    transform: none;
+    display: block;
+    font-size: 12px;
+  }
+}
+
+@media (max-width:760px) {
+  .archive-roster .reserved-tab .roster-card-copy strong {
+    font-size: 10px;
+  }
+}
+
+@media (max-width:760px) {
+  .archive-roster[data-public-count="1"]>.person-tab:not(.reserved-tab) {
+    min-height: 66px;
+    padding: 8px;
+    gap: 10px;
+  }
+}
+
+@media (max-width:760px) {
+  .archive-roster[data-public-count="1"]>.person-tab:not(.reserved-tab) .roster-emblem {
+    width: 32px;
+    height: 40px;
+    flex-basis: 32px;
+  }
+}
+
+@media (max-width:760px) {
+  .archive-roster[data-public-count="1"]>.person-tab:not(.reserved-tab) .roster-card-index {
+    display: none;
+  }
+}
+
+@media (max-width:760px) {
+  .archive-roster[data-archive-group="linked"]>.person-tab {
+    flex-basis: calc(50% - 6px);
+    min-height: 59px;
+  }
+}
+
+@media (max-width:760px) {
+  .person-panel {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    padding: 0;
+    gap: 0;
+  }
+}
+
+@media (max-width:760px) {
+  .nancy {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    padding: 0;
+    gap: 0;
+  }
+}
+
+@media (max-width:760px) {
+  .person-art {
+    width: 100%;
+    padding-bottom: 46px;
+  }
+}
+
+@media (max-width:760px) {
+  .nancy .portrait {
+    height: min(120vw,630px);
+    width: calc(100% + 30px);
+    margin-left: -15px;
+    padding: 4px 0;
+  }
+}
+
+@media (max-width:760px) {
+  .archive-backdrop {
+    top: 10px;
+    left: -20px;
+    width: calc(100% + 40px);
+    height: min(145vw,560px);
+  }
+}
+
+@media (max-width:760px) {
+  .person-copy {
+    padding: 24px 6px 35px;
+    width: 100%;
+    max-width: none;
+  }
+}
+
+@media (max-width:760px) {
+  .nancy .person-copy {
+    padding: 24px 6px 35px;
+    width: 100%;
+    max-width: none;
+  }
+}
+
+@media (max-width:760px) {
+  .person-copy h3 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width:760px) {
+  .person-copy>.micro {
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width:760px) {
+  .person-panel.sheet-only {
+    display: block;
+  }
+}
+
+@media (max-width:760px) {
+  .sheet-only .person-copy {
+    padding: 12px 5px 0;
+  }
+}
+
+@media (max-width:760px) {
+  .sheet-only .person-copy h3 {
+    font-size: 25px;
+  }
+}
+
+@media (max-width:760px) {
+  #faction-panel[data-layout="sheet"] .roster-picker {
+    margin: 0 5px 14px;
+  }
+}
+
+@media (max-width:760px) {
+  .personnel .faction-gallery {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+@media (max-width:760px) {
+  .personnel .empty-archive {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+@media (max-width:760px) {
+  .personnel .faction-gallery {
+    padding: 4px 5px 46px;
+  }
+}
+
+@media (max-width:380px) {
+  .roster-card-arrow {
+    display: none;
+  }
+}
+
+.personnel .faction-tabs>button[aria-selected=true]:before {
+  background: var(--dossier-accent);
+}
+
+.personnel .faction-tabs>button[aria-selected=true]:after {
+  background: var(--dossier-accent);
+}
+
+.person-tab[aria-selected=true] .roster-card-copy small:before {
+  background: var(--dossier-accent);
+}
+
+.person-supplement {
+  scroll-margin-top: 26px;
+}
+
+.archive-backdrop {
+  transition: none;
+}
+
+#archive-person:focus {
+  outline: none;
+}
+
+@media (max-width:760px) {
+  .person-copy>p:not(.micro):not(.person-en) {
+    font-size: 14px;
+    line-height: 2.05;
+  }
+}
+
+@media (max-width:760px) {
+  .person-copy>.micro {
+    font-size: 10px;
+  }
+}
+
+@media (max-width:760px) {
+  .person-en {
+    font-size: 10px;
+  }
+}
+
+@media (max-width:760px) {
+  .faction-tabs>button {
+    min-height: 58px;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width:760px) {
+  .faction-tabs small {
+    display: none;
+  }
+}
+
+@media (max-width:760px) {
+  .roster-heading h3 {
+    font-size: 14px;
+  }
+}
+
+@media (max-width:760px) {
+  .roster-heading>span {
+    font-size: 10px;
+  }
+}
+
+@media (max-width:760px) {
+  .roster-card-copy strong {
+    font-size: 14px;
+  }
+}
+
+@media (max-width:760px) {
+  .roster-card-copy small {
+    font-size: 11px;
+  }
+}
+
+@media (max-width:760px) {
+  .reserved-tab .roster-card-copy strong {
+    font-size: 11px;
+  }
+}

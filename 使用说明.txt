@@ -1,0 +1,11 @@
+ALAMOS: ZWEI — 本地项目情报站
+
+入口：index.html。双击可浏览，或运行“启动预览.cmd”在 http://127.0.0.1:8765/ 预览。启动窗口需要保持开启。
+人物、阵营与附图：archive-data.js；城市和装潢：page-media.js。
+样式：编辑 styles 内的模块，再运行 python tools/build_styles.py。
+新增图片：运行 python tools/build_assets.py（需要 Pillow）。
+上传前检查：python tools/check_site.py（无需额外依赖）。
+
+当前目录只保留使用中的网站、维护源文件和说明。原画仍在 ALMS 原始素材目录，备份单独放在站点之外。
+上传 GitHub 的限制与分批方法见 README.md；内容维护见“人物档案维护说明.md”；最近一次回退位置见“本次视觉调整与回退.md”。
+普通浏览不需要 Python、npm 或外部字体服务。本次没有上传或发布到任何远程仓库。
