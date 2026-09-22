@@ -586,8 +586,9 @@
 .story-opening .ambient-art {
   opacity: 1;
   object-position: center;
-  transform: scale(1.26);
+  transform: translate3d(var(--drift-x,0px),var(--drift-y,0px),0) scale(1.26);
   filter: brightness(.92) saturate(.82);
+  will-change: transform;
 }
 
 .story-opening:after {
@@ -684,7 +685,8 @@
 
 .transmission .ambient-art {
   opacity: .44;
-  transform: scale(1.34);
+  transform: translate3d(var(--drift-x,0px),var(--drift-y,0px),0) scale(1.34);
+  will-change: transform;
 }
 
 .transmission:after {
@@ -711,8 +713,9 @@
 
 @media (max-width:760px) {
   .story-opening .ambient-art {
-    transform: scale(1.34);
+    transform: translate3d(var(--drift-x,0px),var(--drift-y,0px),0) scale(1.34);
     object-position: var(--scene-mobile-position,50% 50%);
+    will-change: auto;
   }
 }
 

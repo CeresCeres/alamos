@@ -1,69 +1,5 @@
 /* 65-navigation: canonical module, including its responsive rules. */
 
-.archive-dock {
-  position: fixed;
-  left: 50%;
-  bottom: 20px;
-  transform: translateX(-50%);
-  z-index: 25;
-  width: min(580px,calc(100% - 40px));
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 10px 12px 10px 20px;
-  background: #0a1727ed;
-  border: 1px solid #b6cadb55;
-  box-shadow: 0 10px 35px #0006;
-  backdrop-filter: blur(14px);
-}
-
-.archive-dock>div {
-  min-width: 0;
-}
-
-.archive-dock small {
-  display: block;
-  font-size: 10px;
-  color: #a2b8c8;
-  letter-spacing: .13em;
-  margin-bottom: 2px;
-}
-
-.archive-dock strong {
-  display: block;
-  font-size: 14px;
-  font-weight: 500;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.archive-dock>button {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  min-height: 44px;
-  padding: 10px 16px;
-  background: #dfe8eb;
-  color: #102133;
-  font-size: 13px;
-}
-
-.archive-dock>button span {
-  font-size: 18px;
-  color: #355ea1;
-}
-
-.modal-open .archive-dock {
-  visibility: hidden;
-}
-
-.archive-switcher-open .archive-dock {
-  visibility: hidden;
-}
-
 body.archive-switcher-open {
   overflow: hidden;
 }
@@ -212,34 +148,6 @@ body.archive-switcher-open {
 }
 
 @media (max-width:760px) {
-  .archive-dock {
-    bottom: max(12px,env(safe-area-inset-bottom));
-    gap: 12px;
-    padding: 9px 10px 9px 14px;
-  }
-}
-
-@media (max-width:760px) {
-  .archive-dock strong {
-    font-size: 13px;
-  }
-}
-
-@media (max-width:760px) {
-  .archive-dock small {
-    font-size: 9px;
-  }
-}
-
-@media (max-width:760px) {
-  .archive-dock>button {
-    padding: 9px 12px;
-    gap: 14px;
-    font-size: 12px;
-  }
-}
-
-@media (max-width:760px) {
   #archive-switcher {
     width: calc(100% - 24px);
     max-height: calc(100svh - 36px);
@@ -289,8 +197,4 @@ body.archive-switcher-open {
   }
 }
 
-@media (prefers-reduced-motion:reduce) {
-  .archive-dock {
-    transition: none;
-  }
-}
+
