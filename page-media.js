@@ -72,18 +72,28 @@ window.ALMS_MEDIA = {
       "source": "0.2.jpg"
     }
   ],
-  "decor": [
+  "world": [
     {
       "title": "远望城市",
       "thumb": "assets/lib-12-thumb.webp",
       "detail": "assets/lib-12-large.webp",
-      "source": "concept1.jpg"
+      "source": "concept1.jpg",
+      "mobilePosition": "62% center"
     },
     {
       "title": "设施深处",
       "thumb": "assets/lib-13-thumb.webp",
       "detail": "assets/lib-13-large.webp",
-      "source": "concept2.jpg"
+      "source": "concept2.jpg",
+      "mobilePosition": "50% center"
+    }
+  ],
+  "decor": [
+    {
+      "title": "主视觉",
+      "detail": "assets/key-vision-large.webp",
+      "source": "Key Vision.png",
+      "mobilePosition": "50% center"
     }
   ]
 };

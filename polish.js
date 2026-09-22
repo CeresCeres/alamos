@@ -11,5 +11,8 @@ for(const section of document.querySelectorAll('.hero,.region')){
  new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;if(!visible)reset()}).observe(section);
  motionPreference.addEventListener('change',reset);pointerPreference.addEventListener('change',reset);document.addEventListener('visibilitychange',()=>{if(document.hidden)reset()});
 }
-const sceneButtons=document.querySelector('.scene-controls');function updateSceneProgress(){sceneButtons.style.setProperty('--scene-progress',((scene+1)/media.scenes.length*100)+'%')}
-new MutationObserver(updateSceneProgress).observe(document.querySelector('#scene-count'),{childList:true});updateSceneProgress();
+for(const counter of document.querySelectorAll('#scene-count,#world-count')){
+ const sceneButtons=counter.closest('.scene-controls');
+ const updateSceneProgress=()=>{const [page,total]=counter.textContent.split('/').map(value=>parseInt(value,10));if(page&&total)sceneButtons.style.setProperty('--scene-progress',page/total*100+'%')};
+ new MutationObserver(updateSceneProgress).observe(counter,{childList:true});updateSceneProgress();
+}

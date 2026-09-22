@@ -29,30 +29,43 @@ function attachMedia(){
  target.append(gallery);initAlbums(gallery);
 }
 new MutationObserver(attachMedia).observe(panel,{childList:true});attachMedia();
-let scene=0,sceneTarget=0,sceneRequest=0;const backdrop=document.querySelector('.region-bg');
 function configureSceneImage(img,item){
  const variants=imagePreviews[item.detail]||[];
  img.src=variants[0]?.src||item.detail;
  if(variants.length){img.srcset=variants.map(x=>`${x.src} ${x.width}w`).join(', ');img.sizes='(max-width:760px) 180svh, 100vw'}else{img.removeAttribute('srcset');img.removeAttribute('sizes')}
  img.style.setProperty('--scene-mobile-position',item.mobilePosition||'50% 50%');
 }
-configureSceneImage(backdrop,media.scenes[0]);
-async function changeScene(direction){
- sceneTarget=(sceneTarget+direction+media.scenes.length)%media.scenes.length;const target=sceneTarget,ticket=++sceneRequest;const controls=document.querySelector('.scene-controls');controls.dataset.loading='true';
- const candidate=new Image();configureSceneImage(candidate,media.scenes[target]);
- try{await candidate.decode()}catch{if(ticket===sceneRequest){sceneTarget=scene;controls.dataset.loading='false'}return}
- if(ticket!==sceneRequest)return;
- document.querySelectorAll('.region-old-frame').forEach(el=>el.remove());
- const reduced=matchMedia('(prefers-reduced-motion:reduce)').matches;
- let old;if(!reduced){old=backdrop.cloneNode();old.removeAttribute('srcset');old.src=backdrop.currentSrc||backdrop.src;old.classList.add('region-old-frame');old.alt='';old.setAttribute('aria-hidden','true');backdrop.after(old)}
- scene=target;configureSceneImage(backdrop,media.scenes[scene]);backdrop.alt='北德文斯克城市影像';
- document.querySelector('#scene-count').textContent=String(scene+1).padStart(2,'0')+' / '+String(media.scenes.length).padStart(2,'0');controls.dataset.loading='false';
- if(old){const fade=old.animate([{opacity:1},{opacity:0}],{duration:420,easing:'ease-out',fill:'forwards'});fade.finished.then(()=>old.remove()).catch(()=>old.remove())}
+function createSceneScroller({section,backdrop,items,alt}){
+ let index=0,target=0,request=0,touch;
+ const controls=section.querySelector('.scene-controls'),counter=section.querySelector('[aria-live=polite]');
+ const total=items.length,pad=number=>String(number).padStart(2,'0');
+ const showCount=()=>{counter.textContent=pad(index+1)+' / '+pad(total)};
+ configureSceneImage(backdrop,items[0]);
+ if(alt)backdrop.alt=alt;
+ async function change(direction){
+  target=(target+direction+total)%total;const wanted=target,ticket=++request;
+  controls.dataset.loading='true';
+  const candidate=new Image();configureSceneImage(candidate,items[wanted]);
+  try{await candidate.decode()}catch{if(ticket===request){target=index;controls.dataset.loading='false'}return}
+  if(ticket!==request)return;
+  section.querySelectorAll('.region-old-frame').forEach(el=>el.remove());
+  const reduced=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  let old;if(!reduced){old=backdrop.cloneNode();old.removeAttribute('srcset');old.src=backdrop.currentSrc||backdrop.src;old.classList.add('region-old-frame');old.alt='';old.setAttribute('aria-hidden','true');backdrop.after(old)}
+  index=wanted;configureSceneImage(backdrop,items[index]);if(alt)backdrop.alt=alt;showCount();controls.dataset.loading='false';
+  if(old){const fade=old.animate([{opacity:1},{opacity:0}],{duration:420,easing:'ease-out',fill:'forwards'});fade.finished.then(()=>old.remove()).catch(()=>old.remove())}
+ }
+ section.querySelector('[id$="-prev"]').addEventListener('click',()=>change(-1));
+ section.querySelector('[id$="-next"]').addEventListener('click',()=>change(1));
+ section.addEventListener('keydown',e=>{if(!e.altKey&&!e.ctrlKey&&!e.metaKey){if(e.key==='ArrowLeft'){e.preventDefault();change(-1)}if(e.key==='ArrowRight'){e.preventDefault();change(1)}}});
+ section.addEventListener('touchstart',e=>{touch=e.touches.length===1?{x:e.touches[0].clientX,y:e.touches[0].clientY}:null},{passive:true});
+ section.addEventListener('touchmove',e=>{if(e.touches.length>1)touch=null},{passive:true});
+ section.addEventListener('touchcancel',()=>{touch=null},{passive:true});
+ section.addEventListener('touchend',e=>{if(!touch||e.touches.length)return;const dx=e.changedTouches[0].clientX-touch.x,dy=e.changedTouches[0].clientY-touch.y;touch=null;if(Math.abs(dx)>55&&Math.abs(dx)>Math.abs(dy)*1.5)change(dx<0?1:-1)},{passive:true});
+ showCount();
+ return {change,get index(){return index},get length(){return total}};
 }
-
-document.querySelector('#scene-prev').addEventListener('click',()=>changeScene(-1));document.querySelector('#scene-next').addEventListener('click',()=>changeScene(1));
-document.querySelector('.region').addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){e.preventDefault();changeScene(-1)}if(e.key==='ArrowRight'){e.preventDefault();changeScene(1)}});
-let cityTouch;const city=document.querySelector('.region');city.addEventListener('touchstart',e=>{cityTouch=e.touches.length===1?{x:e.touches[0].clientX,y:e.touches[0].clientY}:null},{passive:true});city.addEventListener('touchmove',e=>{if(e.touches.length>1)cityTouch=null},{passive:true});city.addEventListener('touchcancel',()=>{cityTouch=null},{passive:true});city.addEventListener('touchend',e=>{if(!cityTouch||e.touches.length)return;const dx=e.changedTouches[0].clientX-cityTouch.x,dy=e.changedTouches[0].clientY-cityTouch.y;cityTouch=null;if(Math.abs(dx)>55&&Math.abs(dx)>Math.abs(dy)*1.5)changeScene(dx<0?1:-1)},{passive:true});
-for(const [selector,item] of [['.story-opening',media.decor[0]],['.transmission',media.decor[1]]]){const img=document.createElement('img');configureSceneImage(img,item);img.alt='';img.loading='lazy';img.decoding='async';img.className='ambient-art';document.querySelector(selector).prepend(img)}
-
-document.querySelector("#scene-count").textContent="01 / "+String(media.scenes.length).padStart(2,"0");
+function createAmbientArt(selector,item){const img=document.createElement('img');configureSceneImage(img,item);img.alt='';img.loading='lazy';img.decoding='async';img.className='ambient-art';document.querySelector(selector).prepend(img);return img}
+createAmbientArt('.transmission',media.decor[0]);
+const worldArt=createAmbientArt('.story-opening',media.world[0]);
+const regionScroller=createSceneScroller({section:document.querySelector('.region'),backdrop:document.querySelector('.region-bg'),items:media.scenes,alt:'北德文斯克城市影像'});
+const worldScroller=createSceneScroller({section:document.querySelector('.story-opening'),backdrop:worldArt,items:media.world,alt:'世界影像'});

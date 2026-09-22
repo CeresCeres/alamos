@@ -17,8 +17,8 @@ for person in archive['people'] + archive['factions']:
     for record in [person, *person.get('identities', [])]:
         for item in record.get('gallery', []):
             requests.setdefault(item['detail'], set()).add(1400)
-for item in media['scenes'] + media['decor']:
-    requests.setdefault(item['detail'], set()).update([1600, 2400])
+for item in media['scenes'] + media['decor'] + media.get('world', []):
+    requests.setdefault(item['detail'], set()).update([960, 1600, 2400])
 
 previews = {}
 for source, widths in requests.items():
