@@ -1,0 +1,29 @@
+/* Mobile readability without cropping the original title-bearing key visual. */
+html { -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+@media (max-width:760px) {
+  .hero-content { top:auto; bottom:32px; left:16px; transform:none; }
+  .hero-sub { font-size:9px; line-height:1.5; letter-spacing:.04em; margin-bottom:6px; }
+  .hero-link { min-height:44px; font-size:12px; gap:14px; padding-left:12px; }
+  .hero-link>span { width:44px; min-height:44px; font-size:20px; }
+  .hero-bottom { left:16px; right:16px; bottom:7px; font-size:8px; }
+  .hero-bottom>span:last-child { display:none; }
+  .hero-color-mark { left:16px; }
+  .person-copy,.roster-card-copy,.faction-tabs>button>span { min-width:0; }
+  .person-copy h3,.person-en,.affiliation small,.roster-card-copy strong { overflow-wrap:anywhere; }
+  .person-copy h3 { font-size:clamp(25px,7.2vw,32px); }
+  .faction-tabs>button { padding:10px 9px; gap:8px; }
+  .variant button,.outline-link { min-height:44px; }
+  .album-toolbar { flex-wrap:wrap; gap:6px 10px; }
+  .album-controls { margin-left:auto; }
+  .album-hint { font-size:11px; }
+  .viewer-bar { padding-top:max(8px,env(safe-area-inset-top)); }
+  .viewer-bar>div { gap:8px; flex-wrap:wrap; }
+  .viewer-bar button,.viewer-bar a { min-height:44px; }
+  button,a,summary { touch-action:manipulation; }
+}
+@media (max-width:380px) {
+  .entry-previews img:nth-child(n+2) { display:none; }
+  .dossier-entry>summary { gap:8px; }
+  .viewer-bar { padding-left:10px; padding-right:10px; }
+  .viewer-bar>div { gap:6px; }
+}
